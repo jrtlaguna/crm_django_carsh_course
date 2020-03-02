@@ -1,0 +1,31 @@
+{% extends 'accounts/main.html' %}
+
+
+{% block content %}
+
+    <br>
+
+    <div class="row">
+        <div class="col-md">
+            <div class="card card-body">
+                <h3 class="card-title">Products</h3>
+            </div>
+            <div class="card card-body">
+                <a href="{% url 'create_product' %}" class="btn btn-primary"></a>
+                <table class="table">
+                    <tr>
+                        <th>Product</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                    </tr>
+                    {% for p in products %}
+                        <td>{{p.name}}</td>
+                        <td>{{p.category}}</td>
+                        <td>{{p.price}}</td>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

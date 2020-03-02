@@ -1,0 +1,37 @@
+{% load static %}
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <img src="{% static 'images/logo.png'%}" id="logo" alt="">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'home' %}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'account' %}">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'products' %}">Products</a>
+      </li>
+    </ul>
+    
+    <ul class="navbar-nav">
+    {% if request.user.is_superuser %}
+      <li class="nav-link">
+      <a href="{% url 'admin:index' %}" class="nav-link">Admin</a>
+      </li>
+    {% endif %}
+    
+    
+      <li class="nav-item" style="color: steelblue;">
+        <span> Hello, {{request.user|title}}</span>
+        <a href="{% url 'logout' %}" class="btn btn-outline-primary my-2 my-sm-0">Logout</a>
+      </li>
+    </ul>
+    
+  </div>
+</nav>

@@ -1,0 +1,27 @@
+{% extends 'accounts/main.html' %}
+{% load widget_tweaks %}
+{% load static %}
+{% block content %}
+<br>
+
+    <div class="row">
+        <div class="col">
+            <div class="card card-body">
+                    
+                <form action="" method="POST">
+                {% csrf_token %}
+
+                    <div class="form-group col-md-4">
+                        {% for f in form %}
+                            <label for="{ f.id_for_label }">{{f.label}}</label>
+                            {{ f|add_class:'form-control'}}      
+                        {% endfor %}
+                    </div>
+                    <input type="submit" value="Create" class="btn btn-primary">
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

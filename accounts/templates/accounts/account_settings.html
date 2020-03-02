@@ -1,0 +1,42 @@
+{% extends 'accounts/main.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .profile-pic {
+        max-width: 200px;
+        max-height: 200px;
+        margin: 0 auto;
+        border-radius: 50%;
+    }
+</style>
+
+
+<br>
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="card card-body">
+            <a href="{% url 'home' %}" class="btn btn-warning">Back to Profile</a>
+            <hr>
+            <h3 style="text-align: center">Account Settings</h3>
+            <hr>
+            <img src="{{request.user.customer.profile_pic.url}}" alt="" class="profile-pic">
+        </div>
+    </div>
+
+    <div class="col-md-9">
+        <div class="card card-body">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                    
+                    <div class="form-group">
+                        {{form.as_p}}
+                    </div>
+                <input type="submit" class="btn btn-primary" name="Update Information">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock%}

@@ -1,0 +1,35 @@
+#logo{
+  width: 50px;
+  /* max-width: 100%; */
+  /* max-height: 100%; */
+  display: block;
+  
+  /* height: max-content; */
+  /* line-height: inherit; */
+  /* max-width: 100%;
+  max-height: 100%; */
+}
+
+body{
+  background-color: #ebeff5;
+}
+
+.total-orders{
+  background-color: #4cb4c7;	
+}
+
+.orders-delivered {
+  background-color: #7abecc;
+}
+
+.orders-pending {
+  background-color: #7CD1C0;
+}
+
+.info-card {
+  background-color: darkturquoise;
+}
+
+.customer-card {
+  background-color: aquamarine;
+}

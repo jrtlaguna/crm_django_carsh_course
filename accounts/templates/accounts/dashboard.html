@@ -1,0 +1,62 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+{% include 'accounts/status.html' %}
+
+<div class="row">
+    <div class="col-md-5">
+    <h5>CUSTOMERS:</h5>
+        <hr>
+        <div class="card card-body">
+        <a href="" class="btn btn-primary btn-sm btn-block">Create Customer</a>
+        <table class="table table-sm">
+            <tr>
+                <th>Customer</th>
+                <th>Phone</th>
+                <th></th>
+            </tr>
+            {% for c in customers %}
+                <tr>
+                    <td>{{c.name}}</td>
+                    <td>{{c.phone}}</td>
+                    <td><a href="{%url 'customer' c.id%}" class="btn btn-sm btn-outline-info btn-block">View</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+        </div>
+    </div>
+
+    <div class="col-md-7">
+        <h5>LAST 5 ORDERS</h5>
+        <hr>
+        <div class="card card-body">
+            {% comment %} <a href="{% url 'create_order' %}" class="btn btn-primary btn-sm btn-block">Create Order</a> {% endcomment %}
+            <table class="table table-sm">
+                <tr>
+                    <th>ID</th>
+                    <th>Product</th>
+                    <th>Date Ordered</th>
+                    <th>Ordered By</th>
+                    <th>Status</th>
+                    <th>Update</th>
+                    <th>Remove</th>
+                </tr>
+                {% for o in orders %}
+                    <tr>
+                        <td>{{o.id}}</td>
+                        <td>{{o.product}}</td>
+                        <td>{{o.date_created}}</td>
+                        <td>{{o.customer}}</td>
+                        <td>{{o.status}}</td>
+                        <td><a href="{% url 'update_order' o.id %}" class="btn btn-warning btn-sm">Update</a></td>
+                        <td><a href="{% url 'delete_order' o.id %}" class="btn btn-danger btn-sm">Remove</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}      

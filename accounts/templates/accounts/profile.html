@@ -1,0 +1,17 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+<h2>This is profile page</h2>
+
+
+
+{% if request.user.is_staff %}
+    <p>I'm a customer</p>    
+{% endif %}
+    
+
+
+{{request.user}}
+
+{% endblock  %}
